@@ -3,9 +3,9 @@ Redis on Windows
 
 This project introduces 3 ways of running the native `Redis` on `MS-Windows (10)`.
 
-Whilst it's recommended to use [Redis](https://redis.io) on Linux in production, it is often useful for developers on MS-Windows platforms to have their own local version of redis running to develop with. 
+Whilst it's recommended to use [Redis](https://redis.io) on Linux in production, it is often useful for developers on MS-Windows platforms to have their own local version of redis running to develop with.
 
-The easiest way of running Redis on on MS-Windows is to use the binary releases of [Native port of Redis for Windows](https://github.com/tporadowski/redis/releases), but as this is an unofficial port it always lags behind the latest official development of redis on Linux/OSX. 
+The easiest way of running Redis on on MS-Windows is to use the binary releases of [Native port of Redis for Windows](https://github.com/tporadowski/redis/releases), but as this is an unofficial port it always lags behind the latest official development of redis on Linux/OSX.
 
 Thanks to [Vagrant](https://www.vagrantup.com/) you can choose to run the latest linux version inside a Virtual Box Linux VM where you'll be able to run the official native version of Redis.
 
@@ -19,7 +19,7 @@ Once your WSL has been downloaded and installed, you can run Linux with the WSL 
 
 ### Install WSL
 
-see [README-wsl.md](README-wsl.md) 
+See [README-wsl.md](README-wsl.md)
 
 ### Install Redis Stable (5.0)
 
@@ -134,6 +134,12 @@ OK
 ```
 
 ---
+For details, please see:
+
+ - https://www.liangzl.com/get-article-detail-26835.html
+ - https://blog.csdn.net/qq_34002221/article/details/85019752
+
+---
 
 The following content is reserved for my reference in the original project [ServiceStack/redis-windows](https://github.com/ServiceStack/redis-windows):
 
@@ -141,15 +147,16 @@ The MSOpenTech of Redis adds some useful extensions for better integration with 
 
 #### Running Redis as a Service
 
-If you installed Redis using the MSI package, then Redis was already installed as a Windows service. Nothing further to do. 
-If you would like to change its settings, you can update the redis.windows-service.conf file and then restart the Redis 
-service (Run -> services.msc -> Redis -> Restart). 
+If you installed Redis using the MSI package, then Redis was already installed as a Windows service. Nothing further to do.
+
+If you would like to change its settings, you can update the redis.windows-service.conf file and then restart the Redis
+service (Run -> services.msc -> Redis -> Restart).
 
 During installation of the MSI you can either use the installer’s user interface to update the port that Redis listens to and the firewall exception or run it silently without a UI. The following examples show how to install from the command line:
 
 #### default install (port 6379 and firewall exception ON):
 
-    msiexec /i Redis-Windows-x64.msi 
+    msiexec /i Redis-Windows-x64.msi
 
 #### set port and turn OFF firewall exception:
 
@@ -162,19 +169,19 @@ During installation of the MSI you can either use the installer’s user interfa
 #### install with no user interface:
 
     msiexec /quiet /i Redis-Windows-x64.msi
-    
+
 If you did not install Redis using the MSI package, then you still run Redis as a Windows service by following these instructions:
 
-In order to better integrate with the Windows Services model, new command line arguments have been introduced to Redis. 
-These service arguments require an elevated user context in order to connect to the service control manager. 
-If these commands are invoked from a non-elevated context, Redis will attempt to create an elevated context in which to execute these commands. 
+In order to better integrate with the Windows Services model, new command line arguments have been introduced to Redis.
+These service arguments require an elevated user context in order to connect to the service control manager.
+If these commands are invoked from a non-elevated context, Redis will attempt to create an elevated context in which to execute these commands.
 This will cause a User Account Control dialog to be displayed by Windows and may require Administrative user credentials in order to proceed.
 
 #### Installing the Service
 
     --service-install
 
-This must be the first argument on the redis-server command line. Arguments after this are passed in the order they occur to Redis when the service is launched. 
+This must be the first argument on the redis-server command line. Arguments after this are passed in the order they occur to Redis when the service is launched.
 The service will be configured as Autostart and will be launched as "NT AUTHORITY\NetworkService". Upon successful installation, a success message will be displayed and Redis will exit.
 
 This command does not start the service.
@@ -188,7 +195,7 @@ For instance:
     --service-uninstall
 
 This will remove the Redis service configuration information from the registry. Upon successful uninstallation, a success message will be displayed and Redis will exit.
-This does command not to stop the service.  
+This does command not to stop the service.
 
 For instance:
 
@@ -200,7 +207,7 @@ For instance:
 
 This will start the Redis service. Upon successful startup, a success message will be displayed and Redis service will be started.
 
-For instance:  
+For instance:
 
     redis-server --service-start
 
@@ -218,7 +225,7 @@ For instance:
 
     --service-name name
 
-This optional argument may be used with any of the preceding commands to set the name of the installed service. This argument should follow the service-install, service-start, service-stop or service-uninstall commands, and precede any arguments to be passed to Redis via the service-install command. 
+This optional argument may be used with any of the preceding commands to set the name of the installed service. This argument should follow the service-install, service-start, service-stop or service-uninstall commands, and precede any arguments to be passed to Redis via the service-install command.
 The following would install and start three separate instances of Redis as a service:
 
     redis-server --service-install –service-name redisService1 –port 10001
@@ -254,9 +261,9 @@ type conventions built in the ServiceStack.Redis Client to provide a rich, human
 [![Instant Redis Setup](https://raw.githubusercontent.com/ServiceStack/Assets/master/img/redis/instant-sentinel-setup.png)](https://github.com/ServiceStack/redis-config)
 
 See the
-[redis config project](https://github.com/ServiceStack/redis-config) for a quick way to setup up 
-the minimal 
+[redis config project](https://github.com/ServiceStack/redis-config) for a quick way to setup up
+the minimal
 [highly available Redis Sentinel configuration](https://github.com/ServiceStack/redis-config/blob/master/README.md#3x-sentinels-monitoring-1x-master-and-2x-slaves)
-including start/stop scripts for instantly running multiple redis instances on a single (or multiple) 
-Windows, OSX or Linux servers. 
+including start/stop scripts for instantly running multiple redis instances on a single (or multiple)
+Windows, OSX or Linux servers.
 
