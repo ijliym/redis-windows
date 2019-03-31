@@ -59,6 +59,10 @@ Once installation is complete, you will be prompted to create a new user account
 
 This user account is for the normal non-admin user that you'll be logged-in as by default when launching a distro.
 
+### Configure Linux account `root`
+
+See [User Accounts and Permissions for WSL](https://docs.microsoft.com/en-us/windows/wsl/user-support#for-fall-creators-update-and-later)
+
 ## Update & upgrade your distro's packages
 
 ```bash
