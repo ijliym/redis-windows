@@ -5,23 +5,23 @@ This project introduces 3 ways of running the native `Redis` on `MS-Windows (10)
 
 Whilst it's recommended to use [Redis](https://redis.io) on Linux in production, it is often useful for developers on MS-Windows platforms to have their own local version of redis running to develop with.
 
-The easiest way of running Redis on on MS-Windows is to use the binary releases of [Native port of Redis for Windows](https://github.com/tporadowski/redis/releases), but as this is an unofficial port it always lags behind the latest official development of redis on Linux/OSX.
+The easiest way of running Redis on MS-Windows is to use the binary releases of [Native port of Redis for Windows](https://github.com/tporadowski/redis/releases), but as this is an unofficial port it always lags behind the latest official development of redis on Linux/OSX.
 
-Thanks to [Vagrant](https://www.vagrantup.com/) you can choose to run the latest linux version inside a Virtual Box Linux VM where you'll be able to run the official native version of Redis.
+Thanks to [Vagrant](https://www.vagrantup.com/) you can choose to run the latest Redis stable version inside a VirtualBox with Linux where you'll be able to run the official native version of Redis.
 
-Or if you have the latest version of **MS-Windows 10**, you can install [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) which will let you run the official version of Redis on Linux on Windows :) This is our preferred approach as it lets you run native Linux binaries on Windows more efficiently than running Linux in a VM.
+Or if you have the latest version of **MS-Windows 10**, you can install [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) which will lets you run the official version of Redis on Linux on Windows. :) This is our preferred approach as it lets you run native Linux binaries on Windows more efficiently than running Linux in a VM.
 
 ## Option 1. Windows Subsystem for Linux
 
-#### [Install Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-
-Once your WSL has been downloaded and installed, you can run Linux with the WSL by typing `wsl.exe` or `bash.exe` from a MS-Windows Command Prompt.
+#### [Install Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-manual)
 
 ### Install WSL
 
 See [README-wsl.md](README-wsl.md)
 
-### Install Redis Stable (5.0)
+### Install Redis Stable (5.0.4)
+
+Once your WSL has been downloaded and installed, you can run Linux with the WSL by typing `wsl.exe` or `bash.exe` from a MS-Windows Command Prompt.
 
 - Update & upgrade your Linux distro's packages
 
@@ -75,16 +75,16 @@ Which you can connect to from within bash or from your Windows desktop using the
 wget https://raw.github.com/ServiceStack/redis-windows/master/downloads/vagrant-redis.zip
 ```
 
-#### 3. Extract `vagrant-redis.zip` in any folder, e.g. in `c:\vagrant-redis`
+#### 3. Extract `vagrant-redis.zip` in any folder, e.g. in `C:\vagrant-redis`
 
 #### 4. Launch the Virtual Box VM with `vagrant up`
 
 ```
-cd c:\vagrant-redis
+cd C:\vagrant-redis
 vagrant up
 ```
 
-This will launch a new Ubuntu VM instance inside Virtual Box that will automatically install and start the latest stable version of redis.
+This will launch a new Ubuntu VM instance inside VirtualBox that will automatically install and start the latest stable version of Redis.
 
 _The vagrant configuration was originally from [JasonPunyon/redishobo](https://github.com/JasonPunyon/redishobo) and has been modified to use the latest stable release of Redis._
 
@@ -99,10 +99,10 @@ These 64-bit binary releases are created by building the [Native port of Redis f
 
 ### Current Version: Redis 4.0.2.3 for Windows (alpha) (1 Oct 2018)
 
-#### 1. Download the [Redis-x64-4.0.2.3.zip](https://github.com/tporadowski/redis/releases/download/v4.0.2.3-alpha/Redis-x64-4.0.2.3.zip) native 64bit Windows port of redis
+#### 1. Download the `Redis-x64-4.0.2.3.zip` native 64bit Windows port of Redis
 
 ```
-wget https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip
+wget https://github.com/tporadowski/redis/releases/download/v4.0.2.3-alpha/Redis-x64-4.0.2.3.zip
 ```
 
 #### 2. Extract `Redis-x64-4.0.2.3.zip` in any folder, e.g. in `C:\Redis`
@@ -121,7 +121,7 @@ cd C:\redis
 redis-cli.exe
 ```
 
-#### 5. Start playing with redis :)
+#### 5. Start playing with redis
 
 ```
 127.0.0.1:6379> SET foo bar
@@ -134,7 +134,8 @@ OK
 ```
 
 ---
-For details, please see:
+
+For more details, please see:
 
  - https://www.liangzl.com/get-article-detail-26835.html
  - https://blog.csdn.net/qq_34002221/article/details/85019752

@@ -16,14 +16,16 @@ Before you can run Linux distros on Windows, you must enable the `Windows Subsys
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
- 2. Restart your computer when prompted. **This reboot is required** in order to ensure that WSL can initiate a trusted execution environment.
+ 2. Restart your computer when prompted.
+
+**This reboot is required** in order to ensure that WSL can initiate a trusted execution environment.
 
 ### Download and manually unpack and install
 
-Here we take the installation of `Debian GNU/Linux` as an example. Installation Directory is `C:\WSL\Debian`.
+Here we take the installation of `Debian GNU/Linux` as an example, and installation directory is `C:\WSL\Debian`.
 
 ```bash
-cd C:\WSL\Debian
+cd C:\WSL
 ```
 
  1. Download using PowerShell
@@ -42,12 +44,12 @@ curl.exe -L -o Debian.appx https://aka.ms/wsl-debian-gnulinux
 
  Extract the <distro>.appx package's contents, e.g. using PowerShell:
 
- ```bash
- Rename-Item Debian.appx Debian.zip
- Expand-Archive Debian.zip Debian
- ```
+```bash
+Rename-Item Debian.appx Debian.zip
+Expand-Archive Debian.zip Debian
+```
 
-Run the distro launcher To complete installation, run the distro launcher application in the target folder, named <distro>.exe. For example: debian.exe, etc.
+Run the distro launcher To complete installation, run the distro launcher application in the target folder, named <distro>.exe. For example: `debian.exe`, etc.
 
 ![](server-appx-expand.png)
 
@@ -64,7 +66,8 @@ sudo apt update && sudo apt upgrade
 ```
 
 ---
-For details, please see:
+
+For more details, please see:
 
  - https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
