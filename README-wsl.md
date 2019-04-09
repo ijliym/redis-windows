@@ -74,4 +74,5 @@ sudo apt update && sudo apt upgrade
 For more details, please see:
 
  - https://docs.microsoft.com/en-us/windows/wsl/install-win10
+ - https://docs.microsoft.com/en-us/windows/wsl/install-manual
 

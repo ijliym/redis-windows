@@ -13,7 +13,7 @@ Or if you have the latest version of **MS-Windows 10**, you can install [Windows
 
 ## Option 1. Windows Subsystem for Linux
 
-#### [Install Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-manual)
+#### [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
 
 ### Install WSL
 
