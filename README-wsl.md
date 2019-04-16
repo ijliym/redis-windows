@@ -49,7 +49,7 @@ Rename-Item Debian.appx Debian.zip
 Expand-Archive Debian.zip Debian
 ```
 
-Run the distro launcher To complete installation, run the distro launcher application in the target folder, named <distro>.exe. For example: `debian.exe`, etc.
+Run the distro launcher To complete installation, run the distro launcher application in the target folder, named <distro>.exe. For example: `.\debian.exe`, etc.
 
 ![](server-appx-expand.png)
 
@@ -62,6 +62,13 @@ This user account is for the normal non-admin user that you'll be logged-in as b
 ### Configure Linux account `root`
 
 See [User Accounts and Permissions for WSL](https://docs.microsoft.com/en-us/windows/wsl/user-support#for-fall-creators-update-and-later)
+
+```bash
+.\debian.exe config --default-user root
+passwd root
+
+.\debian.exe config --default-user dev
+```
 
 ## Update & upgrade your distro's packages
 
