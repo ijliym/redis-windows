@@ -88,3 +88,44 @@ For more details, please see:
  - https://docs.microsoft.com/en-us/windows/wsl/install-win10
  - https://docs.microsoft.com/en-us/windows/wsl/install-manual
 
+---
+
+## Install Development Tools
+
+Install development tools in the directory `/opt`.
+
+```bash
+sudo chown -R dev:dev /opt/
+```
+
+### JDK
+
+https://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+```bash
+mkdir /opt/Java
+cd /opt/Java
+
+# Download jdk-8u212-linux-x64.tar.gz -- Need logged in
+
+tar -xzvf jdk-8u212-linux-x64.tar.gz
+
+```
+
+Edit `/etc/profile`:
+
+```bash
+vi /etc/profile
+
+JAVA_HOME=/opt/Java/jdk1.8.0_212
+JRE_HOME=$JAVA_HOME/jre
+PATH=$PATH:$JAVA_HOME/bin
+CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export JAVA_HOME JRE_HOME PATH CLASSPATH
+```
+
+```bash
+source /etc/profile
+```
+
+
