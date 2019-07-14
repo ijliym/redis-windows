@@ -126,6 +126,8 @@ export JAVA_HOME JRE_HOME PATH CLASSPATH
 
 ```bash
 source /etc/profile
+
+java -version
 ```
 
 
