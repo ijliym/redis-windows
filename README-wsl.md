@@ -1,5 +1,4 @@
-Windows Subsystem for Linux
-===
+# Windows Subsystem for Linux
 
 The Windows Subsystem for Linux lets developers run GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.
 
@@ -51,6 +50,11 @@ Expand-Archive Debian.zip Debian
 
 Run the distro launcher To complete installation, run the distro launcher application in the target folder, named <distro>.exe. For example: `.\debian.exe`, etc.
 
+```bash
+cd C:\WSL\Debian
+.\debian.exe
+```
+
 ![](server-appx-expand.png)
 
  4. Setting up a new Linux user account
@@ -65,6 +69,7 @@ See [User Accounts and Permissions for WSL](https://docs.microsoft.com/en-us/win
 
 ```bash
 .\debian.exe config --default-user root
+wsl
 passwd root
 
 .\debian.exe config --default-user dev
