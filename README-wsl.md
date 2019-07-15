@@ -130,4 +130,65 @@ source /etc/profile
 java -version
 ```
 
+### Redis
+
+### Go
+
+ - Go: https://golang.google.cn/dl/
+
+```bash
+mkdir /opt/Go
+cd /opt/Go
+
+wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz
+tar -zxvf go1.12.7.linux-amd64.tar.gz
+
+mkdir /opt/Go/gopath
+cd /opt/Go/go
+```
+
+```
+vi /etc/profile
+
+GOROOT=/opt/Go/go
+GOPATH=/opt/Go/gopath
+PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GOROOT GOPATH PATH
+```
+
+```bash
+source /etc/profile
+
+go env
+go version
+```
+
+### etcd
+
+ - etcd: https://github.com/etcd-io/etcd
+
+```bash
+mkdir /opt/etcd
+cd /opt/etcd
+
+wget https://mirrors.huaweicloud.com/etcd/v3.3.13/etcd-v3.3.13-linux-amd64.tar.gz
+tar -zxvf etcd-v3.3.13-linux-amd64.tar.gz
+
+cd etcd-v3.3.13-linux-amd64
+
+./etcd
+```
+
+```
+vi /etc/profile
+
+ETCD=/opt/etcd/etcd-v3.3.13-linux-amd64
+PATH=$PATH:$ETCD
+export ETCD PATH
+```
+
+```bash
+source /etc/profile
+```
+
 
